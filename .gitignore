@@ -1,0 +1,86 @@
+# ============================================
+# Git Ignore for Rumu FullStack Repository
+# ============================================
+
+# Dependencies
+node_modules/
+**/node_modules/
+vendor/
+**/vendor/
+
+# Environment Variables & Credentials
+.env
+.env.*
+!.env.example
+*.key
+auth.json
+
+# Build Outputs & Generated Assets
+dist/
+**/dist/
+build/
+**/build/
+public/build/
+public/hot
+public/storage
+*.apk
+
+# Large Archives & Temporary Backups (Avoid GitHub 100MB file limit)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+backend-deploy.zip
+Backend.zip
+rumu-frontend-dist.zip
+rumu-backend-update.zip
+rumu-frontend-build.zip
+rumu-mcp-plugin.zip
+rumu-sql-database.zip
+
+# Storage & Logs
+storage/*.key
+storage/pail/
+storage/framework/cache/*
+!storage/framework/cache/.gitignore
+storage/framework/sessions/*
+!storage/framework/sessions/.gitignore
+storage/framework/views/*
+!storage/framework/views/.gitignore
+storage/logs/*
+!storage/logs/.gitignore
+Backend/storage/*.key
+Backend/storage/pail/
+Backend/storage/framework/cache/*
+!Backend/storage/framework/cache/.gitignore
+Backend/storage/framework/sessions/*
+!Backend/storage/framework/sessions/.gitignore
+Backend/storage/framework/views/*
+!Backend/storage/framework/views/.gitignore
+Backend/storage/logs/*
+!Backend/storage/logs/.gitignore
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Isolated build clone
+rumu-frontend-repo/
+plugin-staging/
+.backup_backend_git/
+
+# IDE & Editor Settings
+.idea/
+.vscode/
+.fleet/
+.phpunit.result.cache
+.phpunit.cache
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Personal files & temporary screenshots
+*.pdf
+WhatsApp Image*

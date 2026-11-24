@@ -1,0 +1,377 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Rumu CRM API",
+    "description": "Natural language real estate CRM control for ChatGPT. Manage leads, campaigns, call logs, tasks, site visits, customers, and inventory directly from chat on web and mobile.",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.rumu.in/api/v1",
+      "description": "Production API Server"
+    }
+  ],
+  "security": [
+    {
+      "OAuth2": [
+        "mcp"
+      ]
+    }
+  ],
+  "paths": {
+    "/auth/me": {
+      "get": {
+        "operationId": "getProfile",
+        "summary": "Get authenticated user profile and active subscription plan",
+        "description": "Returns identity, name, role (realtor/enterprise/admin), email, and plan limits for the current user.",
+        "responses": {
+          "200": {
+            "description": "User profile retrieved successfully"
+          }
+        }
+      }
+    },
+    "/realtor/dashboard": {
+      "get": {
+        "operationId": "getDashboardSummary",
+        "summary": "Get real-time dashboard summary metrics",
+        "description": "Returns counts of total leads, active campaigns, scheduled site visits, tasks pending, and recent activity logs.",
+        "responses": {
+          "200": {
+            "description": "Dashboard summary statistics"
+          }
+        }
+      }
+    },
+    "/realtor/leads": {
+      "get": {
+        "operationId": "listLeads",
+        "summary": "List and filter real estate leads",
+        "description": "Returns a paginated list of leads with contact details, stage, budget, assigned campaign, and last contacted time.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search by lead name, phone number, or email",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by status: new, contacted, interested, closed, lost",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of leads"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createLead",
+        "summary": "Create a new lead",
+        "description": "Add a new prospective buyer or seller lead into the CRM.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "phone"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Full name of the lead"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Primary phone number"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email address"
+                  },
+                  "budget": {
+                    "type": "string",
+                    "description": "Estimated budget or property value"
+                  },
+                  "campaign_id": {
+                    "type": "integer",
+                    "description": "ID of campaign to attribute lead to"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "Initial requirement or observation notes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Lead created successfully"
+          }
+        }
+      }
+    },
+    "/realtor/leads/{id}": {
+      "get": {
+        "operationId": "getLeadDetails",
+        "summary": "Get full details and timeline for a single lead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique Lead ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Full lead details including notes, tasks, and call history"
+          }
+        }
+      }
+    },
+    "/realtor/leads/{id}/status": {
+      "put": {
+        "operationId": "updateLeadStatus",
+        "summary": "Update a lead's stage or status",
+        "description": "Move a lead forward in the pipeline (e.g. from contacted to site_visit_scheduled or closed).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "description": "New status (e.g. new, contacted, site_visit_scheduled, negotiation, closed, lost)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status updated successfully"
+          }
+        }
+      }
+    },
+    "/realtor/leads/{id}/notes": {
+      "post": {
+        "operationId": "addLeadNote",
+        "summary": "Add a note or conversation summary to a lead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "note"
+                ],
+                "properties": {
+                  "note": {
+                    "type": "string",
+                    "description": "Detailed note content"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Note added successfully"
+          }
+        }
+      }
+    },
+    "/realtor/campaigns": {
+      "get": {
+        "operationId": "listCampaigns",
+        "summary": "List active marketing and ad campaigns",
+        "description": "Returns marketing campaigns with lead count, budget spent, and channel (Meta, Google, Direct).",
+        "responses": {
+          "200": {
+            "description": "Campaigns list"
+          }
+        }
+      }
+    },
+    "/realtor/tasks": {
+      "get": {
+        "operationId": "listTasks",
+        "summary": "List upcoming tasks and follow-ups",
+        "description": "Returns reminders, follow-up calls, and deadlines assigned to the realtor.",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by status: pending, completed, overdue",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of tasks"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTask",
+        "summary": "Create a new follow-up task or reminder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "due_at"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Task title (e.g. Call client about 3BHK visit)"
+                  },
+                  "due_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Due date and time (ISO format)"
+                  },
+                  "lead_id": {
+                    "type": "integer",
+                    "description": "Optional associated lead ID"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": [
+                      "low",
+                      "medium",
+                      "high"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Task created successfully"
+          }
+        }
+      }
+    },
+    "/realtor/calls": {
+      "get": {
+        "operationId": "listCalls",
+        "summary": "List call logs and interactions",
+        "description": "Returns inbound and outbound call logs, durations, and outcomes.",
+        "responses": {
+          "200": {
+            "description": "List of recent calls"
+          }
+        }
+      }
+    },
+    "/realtor/site-visits": {
+      "get": {
+        "operationId": "listSiteVisits",
+        "summary": "List scheduled property site visits",
+        "description": "Returns scheduled property tours with customer, project location, date, and status.",
+        "responses": {
+          "200": {
+            "description": "List of site visits"
+          }
+        }
+      }
+    },
+    "/realtor/inventory": {
+      "get": {
+        "operationId": "listInventory",
+        "summary": "List real estate inventory and property units",
+        "description": "Returns available apartments, villas, plots with square footage, price, and availability status.",
+        "responses": {
+          "200": {
+            "description": "Inventory units"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "description": "Rumu OAuth 2.0 Authorization Code flow for ChatGPT",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://api.rumu.in/oauth/authorize",
+            "tokenUrl": "https://api.rumu.in/oauth/token",
+            "scopes": {
+              "mcp": "Full access to Rumu CRM data, leads, campaigns, and reports"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

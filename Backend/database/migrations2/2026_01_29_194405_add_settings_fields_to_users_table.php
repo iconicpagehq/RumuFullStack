@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('email_notifications')->default(true)->after('avatar');
+            $table->boolean('marketing_emails')->default(false)->after('email_notifications');
+            $table->boolean('public_profile')->default(false)->after('marketing_emails');
+            $table->string('theme')->default('light')->after('public_profile');
+            $table->string('language')->default('en')->after('theme');
+            $table->string('timezone')->default('Asia/Kolkata')->after('language');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['email_notifications', 'marketing_emails', 'public_profile', 'theme', 'language', 'timezone']);
+        });
+    }
+};

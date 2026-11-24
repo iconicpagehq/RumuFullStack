@@ -1,0 +1,3196 @@
+{
+    "controllers": [],
+    "services": [],
+    "models": [],
+    "routes": [
+        {
+            "uri": "sanctum\/csrf-cookie",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+            "middleware": [
+                "web"
+            ],
+            "name": "sanctum.csrf-cookie"
+        },
+        {
+            "uri": "api\/v1\/auth\/register",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\AuthController@register",
+            "middleware": [
+                "api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/auth\/login",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\AuthController@login",
+            "middleware": [
+                "api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/auth\/me",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\AuthController@me",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/auth\/logout",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\AuthController@logout",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/auth\/logout-all",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\AuthController@logoutAll",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\DashboardController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/leads",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\LeadsController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/users",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\UsersController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/plans",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\PlansController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/plans",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\PlansController@store",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/plans\/{plan}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\PlansController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/plans\/reorder",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\PlansController@reorder",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/plans\/{plan}\/toggle-status",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\PlansController@toggleStatus",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/upgrade-requests",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\UpgradeRequestsController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/upgrade-requests\/{upgradeRequest}\/approve",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\UpgradeRequestsController@approve",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/upgrade-requests\/{upgradeRequest}\/reject",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\UpgradeRequestsController@reject",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/notifications",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\NotificationsController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/notifications\/{notification}\/read",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\NotificationsController@markRead",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/notifications\/mark-all-read",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\NotificationsController@markAllRead",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/settings",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\SettingsController@updateSettings",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/settings\/appearance",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\SettingsController@updateAppearance",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/admin\/settings\/meta-capi",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Admin\\SettingsController@updateMetaCapi",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "admin.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\DashboardController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CampaignController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CampaignController@store",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CampaignController@show",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CampaignController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CampaignController@destroy",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/leads",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/leads",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@store",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/import\/csv",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@importCsv",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/import\/sample",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@downloadSampleCsv",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/import\/meta\/csv",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@importMetaCsv",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/import\/meta\/sample",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@downloadMetaSampleCsv",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/meta\/forms",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@listMetaForms",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/campaigns\/{campaign}\/meta\/sync",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadImportController@syncMetaLeads",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/leads\/{lead}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@show",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/leads\/{lead}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/leads\/{lead}\/status",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@updateStatus",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/leads\/{lead}\/notes",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\LeadController@addNote",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/customers",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\CustomerController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@projects",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeProject",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects\/{project}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@showProject",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects\/{project}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateProject",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects\/{project}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@destroyProject",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/projects\/{project}\/towers",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeTower",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/towers\/{tower}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateTower",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/towers\/{tower}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@destroyTower",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/towers\/{tower}\/wings",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeWing",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/wings\/{wing}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateWing",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/wings\/{wing}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@destroyWing",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/towers\/{tower}\/floors",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeFloorOnTower",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/wings\/{wing}\/floors",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeFloorOnWing",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/floors\/{floor}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateFloor",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/floors\/{floor}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@destroyFloor",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/floors\/{floor}\/units",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@floorUnits",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/floors\/{floor}\/units",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@storeUnit",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/floors\/{floor}\/units\/bulk",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@bulkStoreUnits",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/units\/{unit}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateUnit",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/units\/{unit}\/status",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@updateUnitStatus",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/units\/{unit}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@destroyUnit",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/inventory\/units\/search",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\InventoryController@searchUnits",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/plans",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\PlanController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/plans\/upgrade",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\PlanController@requestUpgrade",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/profile",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\ProfileController@show",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/profile",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\ProfileController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/profile\/password",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\ProfileController@updatePassword",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "api\/v1\/realtor\/settings\/notifications",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Api\\Realtor\\ProfileController@updateNotifications",
+            "middleware": [
+                "api",
+                "auth:sanctum",
+                "realtor.api",
+                "subscription.active.api"
+            ],
+            "name": null
+        },
+        {
+            "uri": "up",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Closure",
+            "middleware": [],
+            "name": null
+        },
+        {
+            "uri": "\/",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Closure",
+            "middleware": [
+                "web"
+            ],
+            "name": null
+        },
+        {
+            "uri": "checkout",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@show",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.show"
+        },
+        {
+            "uri": "checkout\/apply-coupon",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@applyCoupon",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.apply-coupon"
+        },
+        {
+            "uri": "checkout\/remove-coupon",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@removeCoupon",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.remove-coupon"
+        },
+        {
+            "uri": "checkout\/verify",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@verify",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.verify"
+        },
+        {
+            "uri": "checkout\/success",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@success",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.success"
+        },
+        {
+            "uri": "checkout\/failure",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CheckoutController@failure",
+            "middleware": [
+                "web",
+                "auth"
+            ],
+            "name": "checkout.failure"
+        },
+        {
+            "uri": "webhooks\/razorpay",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\WebhookController@handleRazorpay",
+            "middleware": [
+                "web"
+            ],
+            "name": "webhooks.razorpay"
+        },
+        {
+            "uri": "freelancer",
+            "methods": [
+                "GET",
+                "HEAD",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ],
+            "action": "\\Illuminate\\Routing\\RedirectController",
+            "middleware": [
+                "web"
+            ],
+            "name": null
+        },
+        {
+            "uri": "freelancer\/{path}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Closure",
+            "middleware": [
+                "web"
+            ],
+            "name": null
+        },
+        {
+            "uri": "privacy-policy",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "\\Illuminate\\Routing\\ViewController",
+            "middleware": [
+                "web"
+            ],
+            "name": "privacy-policy"
+        },
+        {
+            "uri": "terms-of-service",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "\\Illuminate\\Routing\\ViewController",
+            "middleware": [
+                "web"
+            ],
+            "name": "terms-of-service"
+        },
+        {
+            "uri": "api-docs",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Closure",
+            "middleware": [
+                "web"
+            ],
+            "name": "api-docs"
+        },
+        {
+            "uri": "login",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@showLogin",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "login"
+        },
+        {
+            "uri": "login",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@login",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": null
+        },
+        {
+            "uri": "register",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@showRegister",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "register"
+        },
+        {
+            "uri": "register",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@register",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": null
+        },
+        {
+            "uri": "auth\/google",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@redirectToGoogle",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "auth.google.redirect"
+        },
+        {
+            "uri": "auth\/google\/callback",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@handleGoogleCallback",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "auth.google.callback"
+        },
+        {
+            "uri": "auth\/facebook",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@redirectToFacebookLogin",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "auth.facebook.redirect"
+        },
+        {
+            "uri": "auth\/facebook\/callback",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@handleFacebookLoginCallback",
+            "middleware": [
+                "web",
+                "guest"
+            ],
+            "name": "auth.facebook.callback"
+        },
+        {
+            "uri": "dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@dashboard",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "dashboard"
+        },
+        {
+            "uri": "logout",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@logout",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "logout"
+        },
+        {
+            "uri": "connect\/google",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@connectGoogle",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.google.redirect"
+        },
+        {
+            "uri": "connect\/google\/callback",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@connectGoogleCallback",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.google.callback"
+        },
+        {
+            "uri": "connect\/google\/unlink",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@disconnectGoogle",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.google.unlink"
+        },
+        {
+            "uri": "connect\/facebook",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@connectFacebook",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.facebook.redirect"
+        },
+        {
+            "uri": "connect\/facebook\/callback",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@connectFacebookCallback",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.facebook.callback"
+        },
+        {
+            "uri": "connect\/facebook\/unlink",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AuthController@disconnectFacebook",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "connect.facebook.unlink"
+        },
+        {
+            "uri": "campaigns",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.index"
+        },
+        {
+            "uri": "campaigns\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.create"
+        },
+        {
+            "uri": "campaigns",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.store"
+        },
+        {
+            "uri": "campaigns\/{campaign}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.show"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.edit"
+        },
+        {
+            "uri": "campaigns\/{campaign}",
+            "methods": [
+                "PUT",
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.update"
+        },
+        {
+            "uri": "campaigns\/{campaign}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\CampaignController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.destroy"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/leads\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.create"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/leads",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.store"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/import",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@importCsv",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.import"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/import\/sample",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@downloadSampleCsv",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.import.sample"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/leads\/import\/meta",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@showMetaImport",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.import.meta.page"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/import\/meta",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@importMetaCsv",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.import.meta"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/import\/meta\/sample",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@downloadMetaSampleCsv",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.import.meta.sample"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/meta\/forms",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@listMetaForms",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.meta.forms"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/meta\/sync",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@syncMetaLeads",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.meta.sync"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/meta-integration",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\MetaIntegrationController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.meta-integration"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/meta-integration\/disconnect-form",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\MetaIntegrationController@disconnectForm",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.meta-integration.disconnect-form"
+        },
+        {
+            "uri": "campaigns\/{campaign}\/meta-integration\/capi",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\MetaIntegrationController@saveCapiSettings",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "campaigns.meta-integration.capi"
+        },
+        {
+            "uri": "leads\/{lead}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.show"
+        },
+        {
+            "uri": "leads\/{lead}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.edit"
+        },
+        {
+            "uri": "leads\/{lead}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.update"
+        },
+        {
+            "uri": "leads\/{lead}\/notes",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@addNote",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.notes.store"
+        },
+        {
+            "uri": "leads\/{lead}\/status",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@updateStatus",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.status.update"
+        },
+        {
+            "uri": "leads\/{lead}\/meta-capi\/resend",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\LeadController@resendMetaCapi",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "leads.meta-capi.resend"
+        },
+        {
+            "uri": "inventory\/projects",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.index"
+        },
+        {
+            "uri": "inventory\/projects\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.create"
+        },
+        {
+            "uri": "inventory\/projects",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.store"
+        },
+        {
+            "uri": "inventory\/projects\/{project}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.show"
+        },
+        {
+            "uri": "inventory\/projects\/{project}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.edit"
+        },
+        {
+            "uri": "inventory\/projects\/{project}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.update"
+        },
+        {
+            "uri": "inventory\/projects\/{project}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\ProjectController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.projects.destroy"
+        },
+        {
+            "uri": "inventory\/projects\/{project}\/towers",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\TowerController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.towers.store"
+        },
+        {
+            "uri": "inventory\/towers\/{tower}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\TowerController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.towers.update"
+        },
+        {
+            "uri": "inventory\/towers\/{tower}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\TowerController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.towers.destroy"
+        },
+        {
+            "uri": "inventory\/towers\/{tower}\/wings",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\WingController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.wings.store"
+        },
+        {
+            "uri": "inventory\/wings\/{wing}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\WingController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.wings.update"
+        },
+        {
+            "uri": "inventory\/wings\/{wing}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\WingController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.wings.destroy"
+        },
+        {
+            "uri": "inventory\/towers\/{tower}\/floors",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\FloorController@storeOnTower",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.floors.store"
+        },
+        {
+            "uri": "inventory\/wings\/{wing}\/floors",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\FloorController@storeOnWing",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.wings.floors.store"
+        },
+        {
+            "uri": "inventory\/floors\/{floor}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\FloorController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.floors.update"
+        },
+        {
+            "uri": "inventory\/floors\/{floor}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\FloorController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.floors.destroy"
+        },
+        {
+            "uri": "inventory\/floors\/{floor}\/units",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.store"
+        },
+        {
+            "uri": "inventory\/floors\/{floor}\/units\/bulk",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@bulkStore",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.bulk-store"
+        },
+        {
+            "uri": "inventory\/units\/{unit}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.update"
+        },
+        {
+            "uri": "inventory\/units\/{unit}\/status",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@updateStatus",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.update-status"
+        },
+        {
+            "uri": "inventory\/units\/{unit}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.destroy"
+        },
+        {
+            "uri": "inventory\/units\/search",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Inventory\\UnitController@search",
+            "middleware": [
+                "web",
+                "auth",
+                "subscription.active"
+            ],
+            "name": "inventory.units.search"
+        },
+        {
+            "uri": "admin\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@dashboard",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.dashboard"
+        },
+        {
+            "uri": "admin\/billing\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\DashboardController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.dashboard"
+        },
+        {
+            "uri": "admin\/billing\/dashboard\/export",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\DashboardController@export",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.dashboard.export"
+        },
+        {
+            "uri": "admin\/billing\/subscriptions",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\SubscriptionController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.subscriptions"
+        },
+        {
+            "uri": "admin\/billing\/subscriptions\/{subscription}\/extend",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\SubscriptionController@extend",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.subscriptions.extend"
+        },
+        {
+            "uri": "admin\/billing\/subscriptions\/{subscription}\/cancel",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\SubscriptionController@cancel",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.subscriptions.cancel"
+        },
+        {
+            "uri": "admin\/billing\/payments",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\PaymentController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.payments"
+        },
+        {
+            "uri": "admin\/billing\/payments\/{payment}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\PaymentController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.payments.show"
+        },
+        {
+            "uri": "admin\/billing\/invoices",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\InvoiceController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.invoices"
+        },
+        {
+            "uri": "admin\/billing\/invoices\/{invoice}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\InvoiceController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.invoices.show"
+        },
+        {
+            "uri": "admin\/billing\/invoices\/{invoice}\/download",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\InvoiceController@download",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.invoices.download"
+        },
+        {
+            "uri": "admin\/billing\/invoices\/{invoice}\/preview",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\InvoiceController@preview",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.invoices.preview"
+        },
+        {
+            "uri": "admin\/billing\/invoices\/{invoice}\/resend",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\InvoiceController@resend",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.invoices.resend"
+        },
+        {
+            "uri": "admin\/billing\/coupons",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.index"
+        },
+        {
+            "uri": "admin\/billing\/coupons\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.create"
+        },
+        {
+            "uri": "admin\/billing\/coupons",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.store"
+        },
+        {
+            "uri": "admin\/billing\/coupons\/{coupon}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.show"
+        },
+        {
+            "uri": "admin\/billing\/coupons\/{coupon}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.edit"
+        },
+        {
+            "uri": "admin\/billing\/coupons\/{coupon}",
+            "methods": [
+                "PUT",
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.update"
+        },
+        {
+            "uri": "admin\/billing\/coupons\/{coupon}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\CouponController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.coupons.destroy"
+        },
+        {
+            "uri": "admin\/billing\/referrals",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\ReferralController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.referrals.index"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/templates",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationTemplateController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.templates.index"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/templates\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationTemplateController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.templates.create"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/templates",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationTemplateController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.templates.store"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/templates\/{template}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationTemplateController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.templates.edit"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/templates\/{template}",
+            "methods": [
+                "PUT",
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationTemplateController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.templates.update"
+        },
+        {
+            "uri": "admin\/billing\/notifications",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.notifications.index"
+        },
+        {
+            "uri": "admin\/billing\/notifications\/{notification}\/resend",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\BillingNotificationController@resend",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.billing.notifications.resend"
+        },
+        {
+            "uri": "admin\/analytics\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\DashboardController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.dashboard"
+        },
+        {
+            "uri": "admin\/analytics\/revenue",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\RevenueController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.revenue"
+        },
+        {
+            "uri": "admin\/analytics\/customers",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\CustomerController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.customers"
+        },
+        {
+            "uri": "admin\/analytics\/subscriptions",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\SubscriptionController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.subscriptions"
+        },
+        {
+            "uri": "admin\/analytics\/payments",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\PaymentController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.payments"
+        },
+        {
+            "uri": "admin\/analytics\/reports",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\ReportController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.reports"
+        },
+        {
+            "uri": "admin\/analytics\/reports\/export",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Analytics\\ReportController@export",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.analytics.reports.export"
+        },
+        {
+            "uri": "admin\/realtors",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.index"
+        },
+        {
+            "uri": "admin\/realtors\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@create",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.create"
+        },
+        {
+            "uri": "admin\/realtors",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@store",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.store"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@show",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.show"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@edit",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.edit"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}",
+            "methods": [
+                "PUT",
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.update"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@destroy",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.destroy"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}\/billing",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\SubscriptionController@customerBilling",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.billing"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}\/assign-plan",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\Billing\\SubscriptionController@storeCustomerPlan",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.assign-plan"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}\/suspend-subscription",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@suspendSubscription",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.suspend-subscription"
+        },
+        {
+            "uri": "admin\/realtors\/{realtor}\/resume-subscription",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\RealtorController@resumeSubscription",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.realtors.resume-subscription"
+        },
+        {
+            "uri": "admin\/leads",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@leads",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.leads.index"
+        },
+        {
+            "uri": "admin\/settings",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@settings",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.index"
+        },
+        {
+            "uri": "admin\/settings",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@updateSettings",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.update"
+        },
+        {
+            "uri": "admin\/settings\/appearance",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@updateAppearance",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.appearance"
+        },
+        {
+            "uri": "admin\/settings\/meta-capi",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@updateMetaCapi",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.meta-capi"
+        },
+        {
+            "uri": "admin\/users",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@users",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.users.index"
+        },
+        {
+            "uri": "admin\/plans",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@plans",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.index"
+        },
+        {
+            "uri": "admin\/plans\/reorder",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@reorderPlans",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.reorder"
+        },
+        {
+            "uri": "admin\/plans\/create",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@createPlan",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.create"
+        },
+        {
+            "uri": "admin\/plans\/{plan}\/edit",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@editPlan",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.edit"
+        },
+        {
+            "uri": "admin\/plans",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@storePlan",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.store"
+        },
+        {
+            "uri": "admin\/plans\/{plan}",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@updatePlan",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.update"
+        },
+        {
+            "uri": "admin\/plans\/{plan}\/toggle-status",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@togglePlanStatus",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.plans.toggle-status"
+        },
+        {
+            "uri": "admin\/upgrade-requests",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@upgradeRequests",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.upgrade_requests.index"
+        },
+        {
+            "uri": "admin\/upgrade-requests\/{upgradeRequest}\/approve",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@approveUpgrade",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.upgrade_requests.approve"
+        },
+        {
+            "uri": "admin\/upgrade-requests\/{upgradeRequest}\/reject",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@rejectUpgrade",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.upgrade_requests.reject"
+        },
+        {
+            "uri": "admin\/notifications",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@notifications",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.notifications.index"
+        },
+        {
+            "uri": "admin\/notifications\/{notification}\/read",
+            "methods": [
+                "PATCH"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@markNotificationRead",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.notifications.mark-read"
+        },
+        {
+            "uri": "admin\/notifications\/mark-all-read",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\AdminController@markAllNotificationsRead",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.notifications.mark-all-read"
+        },
+        {
+            "uri": "admin\/settings\/billing",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\BillingSettingsController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.billing"
+        },
+        {
+            "uri": "admin\/settings\/billing",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Admin\\BillingSettingsController@update",
+            "middleware": [
+                "web",
+                "auth",
+                "role:admin"
+            ],
+            "name": "admin.settings.billing.update"
+        },
+        {
+            "uri": "realtor\/dashboard",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@dashboard",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.dashboard"
+        },
+        {
+            "uri": "realtor\/customers",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\CustomerController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.customers"
+        },
+        {
+            "uri": "realtor\/plans",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@plans",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.plans"
+        },
+        {
+            "uri": "realtor\/plans\/upgrade",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@requestUpgrade",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.plans.upgrade"
+        },
+        {
+            "uri": "realtor\/profile",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@profile",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.profile"
+        },
+        {
+            "uri": "realtor\/profile",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@updateProfile",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.profile.update"
+        },
+        {
+            "uri": "realtor\/profile\/password",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@updatePassword",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.profile.password"
+        },
+        {
+            "uri": "realtor\/settings",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@settings",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.settings"
+        },
+        {
+            "uri": "realtor\/settings\/notifications",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@updateNotifications",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.settings.notifications"
+        },
+        {
+            "uri": "realtor\/settings\/privacy",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@updatePrivacy",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.settings.privacy"
+        },
+        {
+            "uri": "realtor\/settings\/appearance",
+            "methods": [
+                "PUT"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@updateAppearance",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.settings.appearance"
+        },
+        {
+            "uri": "realtor\/settings\/account",
+            "methods": [
+                "DELETE"
+            ],
+            "action": "App\\Http\\Controllers\\RealtorController@deleteAccount",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.settings.account.delete"
+        },
+        {
+            "uri": "realtor\/realtor\/billing",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Realtor\\BillingController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.realtor.billing.index"
+        },
+        {
+            "uri": "realtor\/realtor\/billing\/invoices\/{invoice}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Realtor\\BillingController@showInvoice",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.realtor.billing.invoice.show"
+        },
+        {
+            "uri": "realtor\/realtor\/billing\/invoices\/{invoice}\/download",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Realtor\\BillingController@downloadInvoice",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.realtor.billing.invoice.download"
+        },
+        {
+            "uri": "realtor\/realtor\/billing\/notifications",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\Realtor\\BillingNotificationController@index",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.realtor.billing.notifications.index"
+        },
+        {
+            "uri": "realtor\/realtor\/billing\/notifications\/{notification}\/read",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\Realtor\\BillingNotificationController@markAsRead",
+            "middleware": [
+                "web",
+                "auth",
+                "role:realtor"
+            ],
+            "name": "realtor.realtor.billing.notifications.read"
+        },
+        {
+            "uri": "image\/avatars\/{filename}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\ImageController@serve",
+            "middleware": [
+                "web"
+            ],
+            "name": "image.avatar"
+        },
+        {
+            "uri": "meta\/webhook",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "App\\Http\\Controllers\\MetaWebhookController@verify",
+            "middleware": [
+                "web"
+            ],
+            "name": null
+        },
+        {
+            "uri": "meta\/webhook",
+            "methods": [
+                "POST"
+            ],
+            "action": "App\\Http\\Controllers\\MetaWebhookController@handle",
+            "middleware": [
+                "web"
+            ],
+            "name": null
+        },
+        {
+            "uri": "storage\/{path}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ],
+            "action": "Closure",
+            "middleware": [],
+            "name": "storage.local"
+        }
+    ],
+    "events": [],
+    "listeners": [],
+    "jobs": [],
+    "mail": []
+}

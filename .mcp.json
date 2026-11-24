@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "rumu": {
+      "command": "node",
+      "args": [
+        "C:/Campany Projects/rumu-v2.2/mcp/runtime-bundles/rumu-mcp.cjs"
+      ],
+      "env": {
+        "RUMU_API_BASE": "http://127.0.0.1:8000/api/v1",
+        "RUMU_TOKEN": "5|wjGoxHHVccYxEqIXJJZuQHIdnmxJn2o6SuYhTS7Z485dfa31"
+      }
+    }
+  }
+}
+

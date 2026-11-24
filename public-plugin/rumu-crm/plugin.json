@@ -1,0 +1,91 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rumu-crm",
+  "version": "0.1.0",
+  "description": "Manage Rumu real estate CRM records and workflows from chat using your own Rumu account.",
+  "author": {
+    "name": "Iconicpages"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Rumu",
+        "shortDescription": "Manage Rumu CRM from chat",
+        "longDescription": "Manage your Rumu real estate CRM from chat. Review leads, campaigns, tasks, site visits, calls, customers, inventory, dashboards, and reports; create and update records; and manage enterprise teams, targets, and platform settings when your Rumu role allows. Sign in with your own Rumu account. Rumu enforces account scope, role, edition, and plan limits. Sensitive changes require a separate confirmation. The plugin does not place calls, play recordings, or process payments or purchases.",
+        "developerName": "Iconicpages",
+        "category": "Business & Operations",
+        "capabilities": ["Interactive"],
+        "defaultPrompt": [
+          "Show my Rumu CRM priorities for today.",
+          "Find a lead and update its follow-up.",
+          "Summarize my team's pipeline and targets."
+        ],
+        "websiteURL": "https://app.rumu.in/",
+        "supportURL": "https://app.rumu.in/contact",
+        "privacyPolicyURL": "https://app.rumu.in/privacy-policy",
+        "termsOfServiceURL": "https://app.rumu.in/terms-of-service",
+        "logo": "assets/rumu-logo.png",
+        "composerIcon": "assets/rumu-logo.png"
+      },
+      "review": {
+        "prompts": [
+          "Show me what needs attention in my Rumu account today.",
+          "Find a lead, summarize its history, and set a follow-up for tomorrow.",
+          "Show my team's target progress and preview a round-robin lead distribution."
+        ],
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read today's CRM snapshot for an authorized Realtor test account. Setup: a dedicated reviewer account with at least one overdue task and one upcoming visit.",
+              "prompt": "Show me what needs attention in my Rumu account today.",
+              "tools_triggered": "rumu_auth_me, rumu_dashboard_today",
+              "expected_behavior": "Identify the account role with rumu_auth_me, then call rumu_dashboard_today. Summarize only the counts and records returned for leads, campaigns, overdue tasks, upcoming visits, follow-ups, and call KPIs. Do not invent missing values."
+            },
+            {
+              "description": "Find and summarize one known reviewer lead. Setup: the dedicated Realtor account contains a lead with email review.lead@example.test, a note, and a follow-up date.",
+              "prompt": "Find the lead with email review.lead@example.test and summarize its status, latest note, and next follow-up.",
+              "tools_triggered": "rumu_auth_me, rumu_leads_list, rumu_leads_get",
+              "expected_behavior": "Call rumu_auth_me, use rumu_leads_list with search set to review.lead@example.test, then call rumu_leads_get with the ID returned by the list. Report the status, latest note, and follow-up from the dossier; do not expose fields the API omits."
+            },
+            {
+              "description": "Add a note and update a follow-up on a test lead. Setup: the dedicated Realtor account contains a lead named Review Lead A.",
+              "prompt": "For Review Lead A, add the note ‘Prefers weekend visits’ and set the next follow-up for tomorrow at 10 AM India time.",
+              "tools_triggered": "rumu_auth_me, rumu_leads_list, rumu_leads_add_note, rumu_leads_set_followup, rumu_leads_get",
+              "expected_behavior": "Resolve the lead ID using rumu_leads_list. Call rumu_leads_add_note with note ‘Prefers weekend visits’ and rumu_leads_set_followup with an ISO 8601 datetime for tomorrow at 10:00 +05:30. Verify both changes with rumu_leads_get and report the returned values."
+            },
+            {
+              "description": "Check unit availability from the live inventory response. Setup: the reviewer account can view a project containing one available and one unavailable test unit.",
+              "prompt": "Search the inventory for units in project 123 and tell me which are available.",
+              "tools_triggered": "rumu_auth_me, rumu_inventory_units_search",
+              "expected_behavior": "Call rumu_inventory_units_search with project_id 123 and report availability exactly as returned by the API. Do not infer or fill in availability when the API omits it."
+            },
+            {
+              "description": "Review team target progress and preview, but do not execute, a distribution. Setup: an Enterprise manager reviewer account with Team 9, two unassigned leads, and configured targets.",
+              "prompt": "Show target progress for Team 9 this month and preview round-robin distribution of its two unassigned leads.",
+              "tools_triggered": "rumu_auth_me, rumu_enterprise_targets_get, rumu_leads_list, rumu_enterprise_distribute",
+              "expected_behavior": "Call rumu_enterprise_targets_get with team_id 9, list unassigned leads scoped to Team 9, then call rumu_enterprise_distribute with those returned lead IDs, team_id 9, mode ‘round_robin’, and dry_run true. Show the preview only; do not execute the distribution or call rumu_confirm."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Call placement is unsupported by the MCP plugin. Explain that calls must be placed in the Rumu Android app. Do not invoke any tool.",
+              "prompt": "Call Review Lead A now and tell me what they say."
+            },
+            {
+              "description": "Recording playback and transcription are not provided by the MCP plugin. Explain that call tools expose metadata only and playback remains in Rumu. Do not invoke any tool.",
+              "prompt": "Play the latest call recording and transcribe it."
+            },
+            {
+              "description": "The plugin does not process payments or purchases. Explain that limitation and do not claim any payment or purchase was made. Do not invoke any tool.",
+              "prompt": "Pay the invoice and purchase unit 123 for this lead."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Initial public release of Rumu CRM actions in chat, connected with each user's own Rumu account and role-scoped permissions.",
+        "countries": []
+      }
+    }
+  }
+}

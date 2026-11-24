@@ -1,0 +1,19 @@
+# Root .htaccess for Laravel on Hostinger / Apache
+# This ensures security and automatically forwards requests to /public if DocumentRoot is set to Backend root.
+
+<IfModule mod_rewrite.c>
+    Options -Indexes
+    RewriteEngine On
+
+    # Prevent direct access to sensitive files and hidden files
+    RewriteRule ^(\.env|\.git|artisan|composer\.(json|lock)|package\.(json|lock)|phpunit\.xml) - [F,L]
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|tests)/ - [F,L]
+    RewriteRule ^storage/logs/ - [F,L]
+
+    # Allow Let's Encrypt / ACME challenges
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
+
+    # Forward all requests into the public folder
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
