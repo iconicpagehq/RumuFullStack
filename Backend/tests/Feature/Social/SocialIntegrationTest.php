@@ -3,6 +3,7 @@
 namespace Tests\Feature\Social;
 
 use App\Models\Enterprise;
+use App\Models\EnterpriseMembership;
 use App\Models\Social\SocialAccount;
 use App\Models\Social\SocialConversation;
 use App\Models\Social\SocialOAuthState;
@@ -172,18 +173,34 @@ class SocialIntegrationTest extends TestCase
     {
         $companyA = Enterprise::create([
             'name' => 'Company A Realty',
+            'email' => 'company.a@realty.com',
             'slug' => 'company-a',
             'status' => 'active',
         ]);
 
         $companyB = Enterprise::create([
             'name' => 'Company B Homes',
+            'email' => 'company.b@homes.com',
             'slug' => 'company-b',
             'status' => 'active',
         ]);
 
-        $userA = User::factory()->create(['current_enterprise_id' => $companyA->id]);
-        $userB = User::factory()->create(['current_enterprise_id' => $companyB->id]);
+        $userA = User::factory()->create();
+        $userB = User::factory()->create();
+
+        EnterpriseMembership::create([
+            'enterprise_id' => $companyA->id,
+            'user_id' => $userA->id,
+            'role' => EnterpriseMembership::ROLE_ADMIN,
+            'status' => EnterpriseMembership::STATUS_ACTIVE,
+        ]);
+
+        EnterpriseMembership::create([
+            'enterprise_id' => $companyB->id,
+            'user_id' => $userB->id,
+            'role' => EnterpriseMembership::ROLE_ADMIN,
+            'status' => EnterpriseMembership::STATUS_ACTIVE,
+        ]);
 
         $accountA = SocialAccount::create([
             'company_id' => $companyA->id,

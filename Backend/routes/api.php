@@ -73,9 +73,45 @@ use App\Http\Controllers\Api\Social\SocialInboxController;
 use App\Http\Controllers\Api\Social\SocialMentionController;
 use App\Http\Controllers\Api\Social\SocialAnalyticsController;
 use App\Http\Controllers\Api\Social\SocialWebhookController;
+use App\Http\Controllers\Api\WhatsApp\WhatsAppAccountController;
+use App\Http\Controllers\Api\WhatsApp\WhatsAppConversationController;
+use App\Http\Controllers\Api\WhatsApp\WhatsAppMessageController;
+use App\Http\Controllers\Api\WhatsApp\WhatsAppTemplateController;
+use App\Http\Controllers\Api\WhatsApp\WhatsAppWebhookController;
 use Illuminate\Support\Facades\Route;
 
+// =========================================================================
+// WhatsApp Automation Module Routes (/api/whatsapp/...)
+// =========================================================================
+Route::prefix('whatsapp')->group(function () {
+    // Public Meta Webhook Verification & Ingestion
+    Route::get('webhook', [WhatsAppWebhookController::class, 'verify']);
+    Route::post('webhook', [WhatsAppWebhookController::class, 'handle']);
+
+    // Multi-tenant Protected WhatsApp Routes
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('messages/send', [WhatsAppMessageController::class, 'send']);
+        Route::get('conversations', [WhatsAppConversationController::class, 'index']);
+        Route::get('conversations/{id}/messages', [WhatsAppConversationController::class, 'messages']);
+        Route::get('templates', [WhatsAppTemplateController::class, 'index']);
+        Route::get('accounts', [WhatsAppAccountController::class, 'index']);
+    });
+});
+
 Route::prefix('v1')->group(function () {
+    // Also available via /api/v1/whatsapp/...
+    Route::prefix('whatsapp')->group(function () {
+        Route::get('webhook', [WhatsAppWebhookController::class, 'verify']);
+        Route::post('webhook', [WhatsAppWebhookController::class, 'handle']);
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('messages/send', [WhatsAppMessageController::class, 'send']);
+            Route::get('conversations', [WhatsAppConversationController::class, 'index']);
+            Route::get('conversations/{id}/messages', [WhatsAppConversationController::class, 'messages']);
+            Route::get('templates', [WhatsAppTemplateController::class, 'index']);
+            Route::get('accounts', [WhatsAppAccountController::class, 'index']);
+        });
+    });
     Route::prefix('auth')->group(function () {
         Route::post('register', [AuthController::class, 'register']);
         Route::post('login', [AuthController::class, 'login']);

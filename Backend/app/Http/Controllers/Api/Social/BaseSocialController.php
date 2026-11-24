@@ -32,6 +32,19 @@ abstract class BaseSocialController extends ApiController
             $companyId = (int) $user->activeEnterprise()->id;
         }
 
+        // 4. Check activeEnterpriseMembership method
+        if (!$companyId && method_exists($user, 'activeEnterpriseMembership')) {
+            $activeMembership = $user->activeEnterpriseMembership();
+            if ($activeMembership && $activeMembership->enterprise_id) {
+                $companyId = (int) $activeMembership->enterprise_id;
+            }
+        }
+
+        // 5. Fallback to enterpriseMembership Eloquent relationship
+        if (!$companyId && $user->enterpriseMembership && $user->enterpriseMembership->enterprise_id) {
+            $companyId = (int) $user->enterpriseMembership->enterprise_id;
+        }
+
         return [
             'company_id' => $companyId,
             'user_id' => (int) $user->id,
